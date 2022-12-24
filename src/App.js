@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useRef } from 'react';
+import TodoList from './components/TodoList';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
+  const todoNameRef = useRef()
+  console.log("🚀 ~ file: App.js:7 ~ App ~ todoNameRef", todoNameRef)
+  const [todos, setTodos] = useState([])
+
+  function handleClickAdd(e) {
+    const name = todoNameRef.current.value
+    if (name === '') return
+    console.log('Todo:', name)
+    setTodos(prevTodos => {
+      return [...prevTodos, { id: uuidv4, name: name, complete: false }]
+    })
+    todoNameRef.current.value = null
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodoList todos={todos} />
+      <input ref={todoNameRef} type={"text"} />
+      <button onClick={handleClickAdd}>Add</button>
+      <button>Clear Complete Tasks</button>
+      <div>0 left To Do</div>
+    </>
   );
 }
 
