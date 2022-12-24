@@ -27,9 +27,17 @@ function App() {
     })
     todoNameRef.current.value = null
   }
+
+  function toggleComplete(id) {
+    const newTodos = [...todos]
+    const todo = newTodos.find(todo => todo.id === id)
+    todo.complete = !todo.complete
+    setTodos(newTodos)
+  }
+
   return (
     <>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} toggleComplete={toggleComplete} />
       <input ref={todoNameRef} type={"text"} />
       <button onClick={handleClickAdd}>Add</button>
       <button>Clear Complete Tasks</button>
