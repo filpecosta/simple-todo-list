@@ -23,7 +23,7 @@ function App() {
     const name = todoNameRef.current.value
     if (name === '') return
     setTodos(prevTodos => {
-      return [...prevTodos, { id: uuidv4, name: name, complete: false }]
+      return [...prevTodos, { id: uuidv4(), name: name, complete: false }]
     })
     todoNameRef.current.value = null
   }
@@ -41,7 +41,7 @@ function App() {
       <input ref={todoNameRef} type={"text"} />
       <button onClick={handleClickAdd}>Add</button>
       <button>Clear Complete Tasks</button>
-      <div>0 left To Do</div>
+      <div>{todos.filter(todo => !todo.complete).length} left To Do</div>
     </>
   );
 }
