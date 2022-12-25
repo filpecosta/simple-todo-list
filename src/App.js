@@ -50,15 +50,17 @@ function App() {
   return (
     <>
       <title>Todo List - made by Filipe Leonardo</title>
-      <div className='px-4 md:px-32'>
-        <h1 className='text-4xl mt-4 text-center'>✅ To Do List</h1>
-        <div className='flex justify-start flex-col max-w-sm xl:max-w-sm'>
+      <div id='mainDiv' className='px-4 md:px-32 flex flex-col justify-center items-center'>
+        <div className='flex justify-center'>
+          <h1 className='text-4xl mt-4 text-center'>✅ To Do List</h1>
+        </div>
+        <div className={`w-72 mt-4 rounded flex flex-col ${todos.length > 0 ? 'border-2' : ''}`}>
           <TodoList todos={todos} toggleComplete={toggleComplete} />
 
         </div>
         <form className=''>
           <div className='flex justify-center'>
-            <input className='max-w-sm mt-6 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm' ref={todoNameRef} type={"text"} />
+            <input className='max-w-xs mt-6 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm' ref={todoNameRef} type={"text"} />
 
           </div>
           <div className='flex justify-center'>

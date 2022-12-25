@@ -7,7 +7,9 @@ export default function Todo({ todo, toggleComplete }) {
   return (
     <div className='m-3'>
       <label className='flex '>
-        <input className='w-6 h-6' type={"checkbox"} checked={todo.complete} onChange={handleTodoClick} />
+        <div>
+          <input className='min-w-full w-6 h-6' type={"checkbox"} checked={todo.complete} onChange={handleTodoClick} />
+        </div>
         <p className='pl-2'>
           {todo.name}
         </p>
