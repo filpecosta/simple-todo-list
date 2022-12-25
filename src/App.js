@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
 import TodoList from './components/TodoList';
 import { v4 as uuidv4 } from 'uuid';
+import Footer from './components/Footer';
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
@@ -64,6 +65,7 @@ function App() {
         </div>
       </form>
       <div className='flex justify-end'>{todos.filter(todo => !todo.complete).length} left To Do</div>
+      <Footer />
     </div>
   );
 }
