@@ -5,10 +5,12 @@ export default function Todo({ todo, toggleComplete }) {
     toggleComplete(todo.id)
   }
   return (
-    <div>
-      <label>
-        <input type={"checkbox"} checked={todo.complete} onChange={handleTodoClick} />
-        {todo.name}
+    <div className='m-3'>
+      <label className='flex '>
+        <input className='w-6 h-6' type={"checkbox"} checked={todo.complete} onChange={handleTodoClick} />
+        <p className='pl-2'>
+          {todo.name}
+        </p>
       </label>
     </div>
   )
