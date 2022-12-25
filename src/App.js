@@ -51,8 +51,8 @@ function App() {
     <>
       <title>Todo List - made by Filipe Leonardo</title>
       <div className='px-4 md:px-32'>
-        <h1 className='text-4xl mt-3 text-center'>To Do List</h1>
-        <div className='max-w-sm xl:max-w-sm'>
+        <h1 className='text-4xl mt-4 text-center'>✅ To Do List</h1>
+        <div className='flex justify-start flex-col max-w-sm xl:max-w-sm'>
           <TodoList todos={todos} toggleComplete={toggleComplete} />
 
         </div>
@@ -66,7 +66,7 @@ function App() {
             <button className='bg-green-300 rounded shadow p-2 m-6' onClick={handleClearTodo}>Clear Complete Tasks</button>
           </div>
         </form>
-        <div className='flex justify-end'>{todos.filter(todo => !todo.complete).length} left To Do</div>
+        <div className='flex justify-center'>{todos.filter(todo => !todo.complete).length} left To Do</div>
         <Footer />
       </div>
     </>
